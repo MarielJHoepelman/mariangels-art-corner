@@ -1,18 +1,16 @@
-export const fetcher = () => {
+export const fetcher = (pageName, method, body) => {
   const payload = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    // mode: "no-cors",
-    // body: body ? JSON.stringify(body) : null,
-    body: null,
+    body: body ? JSON.stringify(body) : null,
   };
 
   return (dispatch) => {
     dispatch({ type: "LOADING_DATA" });
-    fetch(`http://localhost:5000/contents/about`, payload)
+    fetch(`http://localhost:5000/contents/${pageName}`, payload)
       .then((response) => {
         return response.json();
       })
@@ -23,7 +21,6 @@ export const fetcher = () => {
         dispatch({ type: "DATA_LOADED", data: responseJSON });
       })
       .catch((e) => {
-        debugger;
         console.error(e);
       });
   };
