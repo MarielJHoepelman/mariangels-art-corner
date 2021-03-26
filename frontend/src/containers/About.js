@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetcher: () => dispatch(fetcher()),
+    fetcher: () => dispatch(fetcher("about", "GET")),
   };
 };
 
