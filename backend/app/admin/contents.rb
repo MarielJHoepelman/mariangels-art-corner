@@ -10,8 +10,7 @@ ActiveAdmin.register Content do
   # or
   #
   permit_params do
-    permitted = [:page_name, :title, :body, :image_source,  :image, image_attributes: [:_destroy], images: []]
-    # permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted = [:page_name, :title, :body, :content_type, :image, image_attributes: [:_destroy]]
     permitted
   end
 
@@ -20,10 +19,7 @@ ActiveAdmin.register Content do
       f.input :page_name
       f.input :title
       f.input :body
-      # f.input :images, as: :file, input_html: { multiple: true }
-      # f.object.images.each do |at|
-      #   span image_tag(at.variant(resize: "250x250!"))
-      # end
+      f.input :content_type , :as => :select, collection: (['page','art']), include_blank: false
       f.input :image, required: true, as: :file
 
       if f.object.image.present?
