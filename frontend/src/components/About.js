@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-
 export const About = ({ data, loading }) => {
   return loading ? (
     <div> loading... </div>
