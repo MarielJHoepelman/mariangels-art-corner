@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetcher } from "../actions/fetcher";
-import { About as AboutComponent } from "../components/About";
+import { Home as HomeComponent } from "../components/Home";
 
-class About extends Component {
+class Home extends Component {
   componentDidMount() {
     this.props.fetcher();
   }
 
   render() {
     return (
-      <AboutComponent data={this.props.data} loading={this.props.loading} />
+      <HomeComponent data={this.props.data} loading={this.props.loading} />
     );
   }
 }
@@ -21,8 +21,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetcher: () => dispatch(fetcher("contents/about", "GET")),
+    fetcher: () => dispatch(fetcher("contents/home", "GET")),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
