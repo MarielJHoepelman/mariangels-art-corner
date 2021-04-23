@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -8,9 +9,11 @@ const HeaderWrapper = styled.header`
 `;
 
 const Header = () => (
-  <HeaderWrapper>
-    <img src={logo} alt="logo" />
-  </HeaderWrapper>
+  <Link to="/">
+    <HeaderWrapper>
+      <img src={logo} alt="logo" />
+    </HeaderWrapper>
+  </Link>
 );
 
 export default Header;
