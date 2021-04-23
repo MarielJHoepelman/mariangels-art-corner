@@ -1,5 +1,4 @@
 export const fetcher = (pageName, method, body) => {
-  console.log("in fetcher", body);
   const payload = {
     method: method,
     headers: {
