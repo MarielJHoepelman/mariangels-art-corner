@@ -13,27 +13,24 @@ const StyledNavBar = styled.nav`
 `;
 
 const StyledLink = styled(NavLink)`
-  padding: 10px 20px;
+  padding: 15px 20px;
   margin: 0px 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  &:hover {
+    color: #ff627e;
+  }
 `;
 
 const NavBar = () => {
-  const link = {
-    display: "block",
-  };
-
   return (
     <StyledNavBar>
       <div>
-        <StyledLink to="/" style={link}>
-          Home
-        </StyledLink>
-        <StyledLink to="/about" style={link}>
-          About
-        </StyledLink>
-        <StyledLink to="/contact-us" style={link}>
-          Contact Us
-        </StyledLink>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/about">About</StyledLink>
+        <StyledLink to="/contact-us">Contact Us</StyledLink>
+        <StyledLink to="/faq">FAQ</StyledLink>
       </div>
     </StyledNavBar>
   );
