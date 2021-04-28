@@ -6,6 +6,7 @@ const Bio = styled.div`
   margin-left: auto;
   margin-right: auto;
   line-height: 30px;
+  font-family: Montserrat;
 `;
 
 export const About = ({ data, loading }) => {
