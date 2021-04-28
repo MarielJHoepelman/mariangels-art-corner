@@ -18,6 +18,7 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-weight: bold;
+  font-family: Montserrat;
   &:hover {
     color: #ff627e;
   }
@@ -28,6 +29,7 @@ const NavBar = () => {
     <StyledNavBar>
       <div>
         <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/art">Art</StyledLink>
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/contact-us">Contact Us</StyledLink>
         <StyledLink to="/faq">FAQ</StyledLink>
