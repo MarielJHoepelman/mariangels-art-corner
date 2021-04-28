@@ -5,7 +5,7 @@ import { Home as HomeComponent } from "../components/Home";
 
 class Home extends Component {
   componentDidMount() {
-    this.props.fetcher();
+    this.props.fetcher("home");
   }
 
   render() {
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetcher: () => dispatch(fetcher("contents/home", "GET")),
+    fetcher: (page_name) => dispatch(fetcher(`contents/${page_name}`, "GET")),
   };
 };
 
