@@ -5,9 +5,10 @@ const TopDiv = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: Montserrat;
 `;
 
-const StyledForm = styled.div`
+const StyledForm = styled.form`
   margin-left: auto;
   margin-right: auto;
   width: 420px;
@@ -20,6 +21,7 @@ const StyledLabel = styled.label`
   line-height: 1.4em;
   margin-bottom: 8px;
   margin-top: 8px;
+  font-family: Montserrat;
 `;
 
 const StyledInput = styled.input`
@@ -65,6 +67,8 @@ const StyledButton = styled.button`
   display: inline-block;
   letter-spacing: 0.08em;
   margin-top: 8px;
+  font-weight: bold;
+  font-family: Montserrat;
 `;
 
 export class ContactUs extends Component {
