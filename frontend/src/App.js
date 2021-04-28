@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import ContactUs from "./containers/ContactUs";
 import Footer from "./components/Footer";
 import FrequentlyAskedQuestions from "./containers/FrequentlyAskedQuestions";
+import Art from "./containers/Art";
+import SingleArt from "./containers/SingleArt";
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
@@ -23,6 +25,8 @@ function App(props) {
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={ContactUs} />
         <Route exact path="/faq" component={FrequentlyAskedQuestions} />
+        <Route exact path="/art" component={Art} />
+        <Route exact path="/art/:page_name" component={SingleArt} />
       </BodyContainer>
       <Footer />
     </Router>
