@@ -14,6 +14,7 @@ const StickyFooter = styled.footer`
 
 const Copyright = styled.p`
   padding-left: 20px;
+  font-family: Montserrat;
 `;
 
 const InstagramLogo = styled.a`
