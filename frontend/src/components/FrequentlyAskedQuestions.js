@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const FaqStyled = styled.div`
   text-align: center;
+  font-family: Montserrat;
 `;
 
 export const FrequentlyAskedQuestions = ({ data, loading }) => {
