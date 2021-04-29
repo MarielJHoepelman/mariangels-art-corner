@@ -2,7 +2,7 @@ import styled from "styled-components";
 import instagram from "../images/instagram.png";
 
 const StickyFooter = styled.footer`
-  padding: 10px 0px;
+  padding: 5px 0px;
   background: linear-gradient(to right, #ff627e, #41d5fa);
   position: fixed;
   bottom: 0;
