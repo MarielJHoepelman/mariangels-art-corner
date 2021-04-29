@@ -31,8 +31,9 @@ const NavBar = () => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/art">Art</StyledLink>
         <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/contact-us">Contact Us</StyledLink>
+        <StyledLink to="/shop">Shop</StyledLink>
         <StyledLink to="/faq">FAQ</StyledLink>
+        <StyledLink to="/contact-us">Contact Us</StyledLink>
       </div>
     </StyledNavBar>
   );
