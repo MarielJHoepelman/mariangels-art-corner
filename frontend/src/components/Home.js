@@ -11,7 +11,8 @@ const ImageContainer = styled.div`
 `;
 
 const TopDivWrapper = styled.div`
-  background: #ff627e;
+  margin-top: 30px;
+  background: #ffc5c0;
   height: 500px;
   margin-bottom: 30px;
   width: 100%;
