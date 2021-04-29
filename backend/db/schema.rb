@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_194656) do
+ActiveRecord::Schema.define(version: 2021_04_28_214512) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -58,6 +58,19 @@ ActiveRecord::Schema.define(version: 2021_04_14_194656) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "content_type"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "product_name"
+    t.decimal "price", precision: 4, scale: 2
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "page_name"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
