@@ -10,6 +10,7 @@ import FrequentlyAskedQuestions from "./containers/FrequentlyAskedQuestions";
 import Art from "./containers/Art";
 import SingleArt from "./containers/SingleArt";
 import Shop from "./containers/Shop";
+import Product from "./containers/Product";
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
@@ -29,6 +30,7 @@ function App(props) {
         <Route exact path="/art" component={Art} />
         <Route exact path="/art/:page_name" component={SingleArt} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/shop/:page_name" component={Product} />
       </BodyContainer>
       <Footer />
     </Router>
