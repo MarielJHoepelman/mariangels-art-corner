@@ -10,13 +10,16 @@ class SingleArt extends Component {
 
   render() {
     return (
-      <SingleArtComponent data={this.props.data} loading={this.props.loading} />
+      <SingleArtComponent
+        content={this.props.content}
+        loading={this.props.loading}
+      />
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { data: state.data, loading: state.loading };
+  return { content: state.content };
 };
 
 const mapDispatchToProps = (dispatch) => {
