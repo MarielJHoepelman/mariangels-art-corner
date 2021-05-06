@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ContactUs as ContactUsComponent } from "../components/ContactUs";
-import { fetcher } from "../actions/fetcher";
+import { submitContactData } from "../actions/submitContactData";
 
 class ContactUs extends Component {
   render() {
@@ -13,7 +13,8 @@ class ContactUs extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitContactData: (data) => dispatch(fetcher("contacts", "POST", data)),
+    submitContactData: (data) =>
+      dispatch(submitContactData("contacts", "POST", data)),
   };
 };
 export default connect(null, mapDispatchToProps)(ContactUsComponent);
