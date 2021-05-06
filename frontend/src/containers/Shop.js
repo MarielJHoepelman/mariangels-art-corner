@@ -1,27 +1,33 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetcher } from "../actions/fetcher";
+import { productsFetcher } from "../actions/productsFetcher";
 import { Shop as ShopComponent } from "../components/Shop";
 
 class Shop extends Component {
   componentDidMount() {
-    this.props.fetcher();
+    this.props.productsFetcher();
   }
 
   render() {
     return (
-      <ShopComponent data={this.props.data} loading={this.props.loading} />
+      <ShopComponent
+        products={this.props.products}
+        loading={this.props.loading}
+      />
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { data: state.data, loading: state.loading };
+  return {
+    products: state.products.data,
+    loading: state.products.loading,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetcher: () => dispatch(fetcher("products", "GET")),
+    productsFetcher: () => dispatch(productsFetcher("products", "GET")),
   };
 };
 
