@@ -10,13 +10,14 @@ class Home extends Component {
 
   render() {
     return (
-      <HomeComponent data={this.props.data} loading={this.props.loading} />
+      <HomeComponent data={this.props.content} loading={this.props.loading} />
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { data: state.data, loading: state.loading };
+  /*return { data: state.data, loading: state.loading };*/
+  return { content: state.content };
 };
 
 const mapDispatchToProps = (dispatch) => {
