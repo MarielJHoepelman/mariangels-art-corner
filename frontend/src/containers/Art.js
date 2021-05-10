@@ -9,12 +9,14 @@ class Art extends Component {
   }
 
   render() {
-    return <ArtComponent data={this.props.data} loading={this.props.loading} />;
+    return (
+      <ArtComponent content={this.props.content} loading={this.props.loading} />
+    );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { data: state.data, loading: state.loading };
+  return { content: state.content, loading: state.loading };
 };
 
 const mapDispatchToProps = (dispatch) => {
