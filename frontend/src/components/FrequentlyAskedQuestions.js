@@ -5,11 +5,11 @@ const FaqStyled = styled.div`
   font-family: Montserrat;
 `;
 
-export const FrequentlyAskedQuestions = ({ data, loading }) => {
+export const FrequentlyAskedQuestions = ({ content, loading }) => {
   return (
     <FaqStyled>
-      <h1>{data.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.body }} />
+      <h1>{content.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: content.body }} />
     </FaqStyled>
   );
 };
