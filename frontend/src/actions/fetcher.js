@@ -1,27 +1,19 @@
+import { getPayload } from "./util/getPayload";
+
 export const fetcher = (pageName, method, body) => {
-  const payload = {
-    method: method,
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: body ? JSON.stringify(body) : null,
-  };
+  const payload = getPayload(method, body);
 
   return (dispatch) => {
-    dispatch({ type: "LOADING_DATA" });
+    dispatch({ type: "LOADING_CONTENT" });
     fetch(`http://localhost:5000/${pageName}`, payload)
       .then((response) => {
         return response.json();
       })
       .then((responseJSON) => {
-        console.log("in fetcher", responseJSON);
         // return responseJSON;
         // debugger;
-        dispatch({ type: "DATA_LOADED", data: responseJSON });
+        dispatch({ type: "CONTENT_LOADED", content: responseJSON });
       })
-      .catch((e) => {
-        console.error(e);
-      });
+      .catch((e) => {});
   };
 };
