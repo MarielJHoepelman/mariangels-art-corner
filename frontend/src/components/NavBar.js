@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledNavBar = styled.nav`
   background: linear-gradient(to right, #ff627e, #41d5fa);
   padding: 1px 0px;
+  margin-bottom: 20px;
   > div {
     background: white;
     display: flex;
