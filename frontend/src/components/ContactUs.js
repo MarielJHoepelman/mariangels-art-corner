@@ -75,7 +75,6 @@ export class ContactUs extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    console.log("hello from conctact us component", this.props);
 
     this.state = {
       name: "",
