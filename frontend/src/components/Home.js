@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { ArtCard } from "./ArtCard";
 
 const TopDiv = styled.div`
   padding-right: 100px;
@@ -11,13 +12,18 @@ const ImageContainer = styled.div`
 `;
 
 const TopDivWrapper = styled.div`
-  margin-top: 30px;
-  background: #ffc5c0;
-  height: 500px;
-  margin-bottom: 30px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+`;
+
+const TopDivContainer = styled.div`
+  padding: 30px 0;
+  margin-bottom: 30px;
+  background: rgb(255 100 126 / 8%);
+  width: 100%;
 `;
 
 const StyledLink = styled(Link)`
@@ -36,38 +42,41 @@ const StyledLink = styled(Link)`
   display: inline-block;
   letter-spacing: 0.08em;
   margin-top: 8px;
+  text-decoration: none;
 `;
 
+export const ArtCardsContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+`;
 export const Home = ({ data, loading }) => {
   return loading ? (
     <div> loading... </div>
   ) : (
     <div>
-      <TopDivWrapper>
-        <TopDiv>
-          <h1>{data.title}</h1>
-          <h3>{data.body}</h3>
-        </TopDiv>
-        <ImageContainer>
-          {data?.image_file?.large && (
-            <img src={data.image_file.medium} alt="profile" />
-          )}
-        </ImageContainer>
-      </TopDivWrapper>
+      <TopDivContainer>
+        <TopDivWrapper>
+          <TopDiv>
+            <h1>{data.title}</h1>
+            <h3>{data.body}</h3>
+          </TopDiv>
+          <ImageContainer>
+            {data?.image_file?.large && (
+              <img src={data.image_file.medium} alt="profile" />
+            )}
+          </ImageContainer>
+        </TopDivWrapper>
+      </TopDivContainer>
       <div>
-        <div>
+        <ArtCardsContainer>
           {data?.art_randomizer &&
-            data.art_randomizer.map((art) => (
-              <Link to={`/art/${art.page_name}`}>
-                <img
-                  key={art.page_name}
-                  src={art.image_file.square}
-                  alt={art.title}
-                />
-              </Link>
-            ))}
-        </div>
-        <StyledLink to="/art">See all</StyledLink>
+            data.art_randomizer.map((art) => <ArtCard art={art} />)}
+        </ArtCardsContainer>
+        <ArtCardsContainer>
+          <StyledLink to="/art">SEE ALL</StyledLink>
+        </ArtCardsContainer>
       </div>
     </div>
   );
