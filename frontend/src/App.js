@@ -11,6 +11,8 @@ import Art from "./containers/Art";
 import SingleArt from "./containers/SingleArt";
 import Shop from "./containers/Shop";
 import Product from "./containers/Product";
+import Signup from "./containers/Signup";
+import Login from "./containers/Login";
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
@@ -31,6 +33,8 @@ function App(props) {
         <Route exact path="/art/:page_name" component={SingleArt} />
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/shop/:page_name" component={Product} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
       </BodyContainer>
       <Footer />
     </Router>
