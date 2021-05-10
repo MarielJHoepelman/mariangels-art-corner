@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { ArtCard } from "./ArtCard";
 
 const TopDiv = styled.div`
   padding-right: 100px;
@@ -18,21 +19,22 @@ const TopDivWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Art = ({ data, loading }) => {
+export const ArtCardsContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 1450px;
+  margin: 0 auto;
+`;
+
+export const Art = ({ content, loading }) => {
   return loading ? (
     <div> loading... </div>
   ) : (
-    <div>
-      {data?.display_art &&
-        data.display_art.map((art) => (
-          <Link to={`/art/${art.page_name}`}>
-            <img
-              key={art.page_name}
-              src={art.image_file.square}
-              alt={art.title}
-            />
-          </Link>
-        ))}
-    </div>
+    <ArtCardsContainer>
+      {content?.display_art &&
+        content.display_art.map((art) => <ArtCard art={art} />)}
+    </ArtCardsContainer>
   );
 };
