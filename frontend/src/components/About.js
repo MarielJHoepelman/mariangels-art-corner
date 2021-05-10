@@ -9,16 +9,16 @@ const Bio = styled.div`
   font-family: Montserrat;
 `;
 
-export const About = ({ data, loading }) => {
+export const About = ({ content, loading }) => {
   return loading ? (
     <div> loading... </div>
   ) : (
     <div>
       <Bio>
-        <h1>{data.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.body }} />
-        {data?.image_file?.large && (
-          <img src={data.image_file.large} alt="profile" />
+        <h1>{content.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: content.body }} />
+        {content?.image_file?.large && (
+          <img src={content.image_file.large} alt="profile" />
         )}
       </Bio>
     </div>
