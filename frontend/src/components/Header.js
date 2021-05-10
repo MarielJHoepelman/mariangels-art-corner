@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
+import HeaderShoppingCart from "../containers/HeaderShoppingCart";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -9,11 +10,12 @@ const HeaderWrapper = styled.header`
 `;
 
 const Header = () => (
-  <Link to="/">
-    <HeaderWrapper>
+  <HeaderWrapper>
+    <Link to="/">
       <img src={logo} alt="logo" />
-    </HeaderWrapper>
-  </Link>
+    </Link>
+    <HeaderShoppingCart />
+  </HeaderWrapper>
 );
 
 export default Header;
