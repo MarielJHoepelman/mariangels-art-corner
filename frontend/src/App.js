@@ -13,6 +13,8 @@ import Shop from "./containers/Shop";
 import Product from "./containers/Product";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import Cart from "./containers/Cart";
+import Checkout from "./containers/Checkout";
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
@@ -35,6 +37,8 @@ function App(props) {
         <Route exact path="/shop/:page_name" component={Product} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/checkout" component={Checkout} />
       </BodyContainer>
       <Footer />
     </Router>
