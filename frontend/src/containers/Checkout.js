@@ -10,12 +10,18 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
-const InjectedCheckoutForm = () => (
+const InjectedCheckoutForm = ({ shoppingCart }) => (
   <ElementsConsumer>
     {({ stripe, elements }) => {
       return (
         stripe &&
-        elements && <CheckoutComponent stripe={stripe} elements={elements} />
+        elements && (
+          <CheckoutComponent
+            stripe={stripe}
+            elements={elements}
+            shoppingCart={shoppingCart}
+          />
+        )
       );
     }}
   </ElementsConsumer>
@@ -25,7 +31,7 @@ class Checkout extends Component {
   render() {
     return (
       <Elements stripe={stripePromise}>
-        <InjectedCheckoutForm />;
+        <InjectedCheckoutForm shoppingCart={this.props.shoppingCart} />
       </Elements>
     );
   }
