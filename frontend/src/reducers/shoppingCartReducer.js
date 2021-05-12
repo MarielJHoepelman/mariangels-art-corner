@@ -9,6 +9,11 @@ export default function shoppingCartReducer(state = [], action) {
       } else {
         return [...state, action.product];
       }
+    case "REMOVE_PRODUCT_FROM_SHOPPING_CART":
+      const products = state.filter(
+        (product) => product.id !== action.product.id
+      );
+      return products;
     default:
       return state;
   }
