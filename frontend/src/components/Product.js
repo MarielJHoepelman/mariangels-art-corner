@@ -102,7 +102,9 @@ export class Product extends Component {
   handleAddToCart = () => {
     this.props.addProductToShoppingCart({
       id: this.props.products.id,
+      image: this.props.products.product_image,
       product_name: this.props.products.product_name,
+      price: this.props.products.price,
       qty: this.state.quantity,
     });
   };
