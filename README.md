@@ -7,7 +7,7 @@
 
 ## Usage
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam eget felis eget nunc. Quam elementum pulvinar etiam non quam lacus. Tortor at auctor urna nunc id cursus metus aliquam eleifend. Et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. A diam sollicitudin tempor id eu. Vitae congue mauris rhoncus aenean vel elit. Magna eget est lorem ipsum dolor sit amet consectetur. In nibh mauris cursus mattis molestie a iaculis. Sapien eget mi proin sed libero enim sed faucibus.
+This application is still is development. When the application is launched, this file will be updated.
 
 ## Contributing
 
