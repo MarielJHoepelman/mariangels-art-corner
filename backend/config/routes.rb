@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       sessions: 'sessions',
       registrations: 'registrations'
     }
+    resources :orders
 end
