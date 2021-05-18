@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { submitOrder } from "../actions/submitOrder";
 import { Checkout as CheckoutComponent } from "../components/Checkout";
 import {
   CardElement,
@@ -10,7 +11,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
-const InjectedCheckoutForm = ({ shoppingCart }) => (
+const InjectedCheckoutForm = ({ shoppingCart, submitOrder }) => (
   <ElementsConsumer>
     {({ stripe, elements }) => {
       return (
@@ -20,6 +21,7 @@ const InjectedCheckoutForm = ({ shoppingCart }) => (
             stripe={stripe}
             elements={elements}
             shoppingCart={shoppingCart}
+            submitOrder={submitOrder}
           />
         )
       );
@@ -31,7 +33,10 @@ class Checkout extends Component {
   render() {
     return (
       <Elements stripe={stripePromise}>
-        <InjectedCheckoutForm shoppingCart={this.props.shoppingCart} />
+        <InjectedCheckoutForm
+          shoppingCart={this.props.shoppingCart}
+          submitOrder={this.props.submitOrder}
+        />
       </Elements>
     );
   }
@@ -42,7 +47,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    submitOrder: (order) => dispatch(submitOrder("orders", "POST", order)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
