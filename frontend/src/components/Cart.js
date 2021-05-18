@@ -1,24 +1,15 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-
-const StyledLink = styled(Link)`
-  background: #ff627e;
-  border: 1px solid #f4a8a8;
-  color: #fff;
-  font-size: 15px;
-  line-height: 1em;
-  height: auto;
-  margin: 0;
-  cursor: pointer;
-  padding: 1.2em 25px 1.2em;
-  vertical-align: middle;
-  text-align: center;
-  border-radius: 5px;
-  display: inline-block;
-  letter-spacing: 0.08em;
-  margin-top: 8px;
-  text-decoration: none;
-`;
+import {
+  StyledLink,
+  CartHeaderWrapper,
+  ColumnNameWrapper,
+  ProductColumn,
+  CartColumn,
+  PriceTitle,
+  ProductNameAndImage,
+  SubtotalWrapper,
+  RedirectToPath,
+  CartContainer,
+} from "../styles";
 
 export const Cart = ({
   shoppingCart,
@@ -27,26 +18,51 @@ export const Cart = ({
 }) => {
   return (
     <div>
-      <h1>Shopping Cart</h1>
-      <div>
-        {shoppingCart.map((product) => (
-          <div key={product.id}>
-            <h3>
-              {product.product_name}
-              Qty: {product.qty} ${product.price}
-              <button onClick={() => removeProductFromShoppingCart(product)}>
-                Remove Item
-              </button>
-              Total: {product.qty * product.price}
-            </h3>
+      <CartHeaderWrapper>Shopping Cart</CartHeaderWrapper>
+      <CartContainer>
+        <ColumnNameWrapper>
+          <ProductColumn>Product</ProductColumn>
+          <CartColumn>Price</CartColumn>
+          <CartColumn>Quantity</CartColumn>
+          <CartColumn>Total</CartColumn>
+        </ColumnNameWrapper>
+        <div>
+          {shoppingCart.map((product) => (
+            <ColumnNameWrapper key={product.id}>
+              <ProductNameAndImage>
+                <div>
+                  <img src={product.image.thumb} alt={product.id} />
+                </div>
+                <div>
+                  <h3>{product.product_name}</h3>
+                </div>
+              </ProductNameAndImage>
+              <PriceTitle>
+                <p> ${product.price} </p>
+              </PriceTitle>
+              <CartColumn>
+                <p>
+                  {product.qty}{" "}
+                  <button
+                    onClick={() => removeProductFromShoppingCart(product)}
+                  >
+                    X
+                  </button>
+                </p>
+              </CartColumn>
+              <CartColumn>
+                <p>{product.qty * product.price}</p>
+              </CartColumn>
+            </ColumnNameWrapper>
+          ))}
+        </div>
+        <SubtotalWrapper>
+          <h2>Subtotal: ${calculateSubtotal}</h2>
 
-            <img src={product.image.thumb} alt={product.id} />
-          </div>
-        ))}
-      </div>
-      <h1>Subtotal: ${calculateSubtotal}</h1>
-      <StyledLink to="/checkout">CHECK OUT</StyledLink>
-      <Link to="/shop">Continue Shopping</Link>
+          <StyledLink to="/checkout">CHECK OUT</StyledLink>
+          <RedirectToPath to="/shop">Continue Shopping</RedirectToPath>
+        </SubtotalWrapper>
+      </CartContainer>
     </div>
   );
 };

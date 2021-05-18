@@ -1,13 +1,4 @@
-import styled from "styled-components";
-
-const Bio = styled.div`
-  text-align: center;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 30px;
-  font-family: Montserrat;
-`;
+import { Bio } from "../styles";
 
 export const About = ({ content, loading }) => {
   return loading ? (

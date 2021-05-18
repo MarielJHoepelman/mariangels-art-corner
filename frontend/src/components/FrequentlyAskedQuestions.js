@@ -1,9 +1,4 @@
-import styled from "styled-components";
-
-const FaqStyled = styled.div`
-  text-align: center;
-  font-family: Montserrat;
-`;
+import { FaqStyled } from "../styles";
 
 export const FrequentlyAskedQuestions = ({ content, loading }) => {
   return (

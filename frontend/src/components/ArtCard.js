@@ -1,16 +1,4 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-
-export const ArtCardLink = styled(Link)`
-  text-align: center;
-  text-decoration: none;
-  font-family: Montserrat;
-  color: #ff627e;
-  font-weight: bold;
-  :hover {
-    color: #41d5fa;
-  }
-`;
+import { ArtCardLink } from "../styles";
 
 export const ArtCard = ({ art }) => (
   <ArtCardLink to={`/art/${art.page_name}`} key={art.page_name}>

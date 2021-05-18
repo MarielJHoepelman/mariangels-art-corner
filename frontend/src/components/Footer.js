@@ -1,29 +1,5 @@
-import styled from "styled-components";
 import instagram from "../images/instagram.png";
-
-const StickyFooter = styled.footer`
-  padding: 5px 0px;
-  background: linear-gradient(to right, #ff627e, #41d5fa);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Copyright = styled.p`
-  padding-left: 20px;
-  font-family: Montserrat;
-`;
-
-const InstagramLogo = styled.a`
-  padding-right: 20px;
-  img {
-    height: 50px;
-    width: 50px;
-  }
-`;
+import { StickyFooter, Copyright, InstagramLogo } from "../styles";
 
 const Footer = () => {
   return (
