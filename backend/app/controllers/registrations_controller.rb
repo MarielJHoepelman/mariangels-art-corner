@@ -4,7 +4,15 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    resource.save
+    if resource.save
+      sign_in(resource)   
+    end
+
     render_resource(resource)
   end
+
+  def show
+    render json: current_user
+  end
+
 end
