@@ -1,48 +1,81 @@
 import React, { Component } from "react";
-import { CardElement } from "@stripe/react-stripe-js";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {
+  CheckoutContainer,
+  CheckoutForm,
+  CheckoutCart,
+  StyledButton,
+} from "../styles";
 
 export class Checkout extends Component {
   constructor(props) {
     super(props);
   }
 
-  handleSubmit = async (event) => {
+  componentDidMount() {
+    this.props.account();
+  }
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    const { stripe, elements } = this.props;
-    const payload = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardElement),
+
+    const order = {
+      order: {
+        user_id: this.props.user.id,
+        total: this.total(),
+        order_items: this.props.shoppingCart.map((item) => {
+          return {
+            product_id: item.id,
+            price: item.price,
+            quantity: item.quantity,
+          };
+        }),
+      },
+    };
+    this.props.submitOrder(order).then((result) => {
+      this.props.clearCart();
+      this.props.history.push({
+        pathname: "/order-submitted",
+        state: { order: result },
+      });
     });
   };
+
+  total = () => {
+    return this.props.shoppingCart.reduce((acc, product) => {
+      return (acc += product.quantity * product.price);
+    }, 0);
+  };
+
   render() {
     return (
-      <div>
-        <div>
+      <CheckoutContainer>
+        <CheckoutForm>
+          {this.props.user && (
+            <div>
+              <div>First Name: {this.props.user.name}</div>
+              <div>Last Name: {this.props.user.last_name}</div>
+              <div>Email: {this.props.user.email}</div>
+            </div>
+          )}
           <form onSubmit={this.handleSubmit}>
-            <CardElement />
-            <button type="submit" disabled={!this.props.stripe}>
-              Pay
-            </button>
+            <StyledButton type="submit">Submit Order</StyledButton>
           </form>
-        </div>
-        <div>
-          <div>
-            {/* this.props.shoppingCart.map((product) => (
+        </CheckoutForm>
+        <CheckoutCart>
+          {this.props.shoppingCart &&
+            this.props.shoppingCart.map((product) => (
               <div key={product.id}>
                 <h3>
                   {product.product_name}
-                  Qty: {product.qty} ${product.price}
-                  Total: {product.qty * product.price}
+                  Qty: {product.quantity} ${product.price}
+                  Total: {product.quantity * product.price}
                 </h3>
 
                 <img src={product.image.thumb} alt={product.id} />
               </div>
-            )) */}
-          </div>
-        </div>
-      </div>
+            ))}
+        </CheckoutCart>
+      </CheckoutContainer>
     );
   }
 }
