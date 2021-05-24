@@ -42,7 +42,7 @@ export const Cart = ({
               </PriceTitle>
               <CartColumn>
                 <p>
-                  {product.qty}{" "}
+                  {product.quantity}{" "}
                   <button
                     onClick={() => removeProductFromShoppingCart(product)}
                   >
@@ -51,7 +51,7 @@ export const Cart = ({
                 </p>
               </CartColumn>
               <CartColumn>
-                <p>{product.qty * product.price}</p>
+                <p>{product.quantity * product.price}</p>
               </CartColumn>
             </ColumnNameWrapper>
           ))}
