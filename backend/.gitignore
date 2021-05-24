@@ -42,3 +42,5 @@ yarn-debug.log*
 
 /public/system/contents/images
 /public/system/products/images
+
+.env
