@@ -257,7 +257,7 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const LogoLink = styled(Link)`
-  margin-left: auto;
+  position: relative;
 `;
 
 //HEADER SHOPPING CART (shopping bag icon)
@@ -266,6 +266,16 @@ export const ShoppingBagWrapper = styled(Link)`
   margin-left: auto;
   padding-right: 20px;
   position: relative;
+`;
+
+export const HeaderAccountLink = styled.div`
+  margin-left: auto;
+  padding-right: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
 `;
 
 export const QtyWrapper = styled.div`
