@@ -1,0 +1,13 @@
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as ContactUs } from "./ContactUs";
+export { default as FrequentlyAskedQuestions } from "./FrequentlyAskedQuestions";
+export { default as Art } from "./Art";
+export { default as SingleArt } from "./SingleArt";
+export { default as Shop } from "./Shop";
+export { default as Product } from "./Product";
+export { default as Signup } from "./Signup";
+export { default as Login } from "./Login";
+export { default as Cart } from "./Cart";
+export { default as Checkout } from "./Checkout";
+export { default as Account } from "./Account";
