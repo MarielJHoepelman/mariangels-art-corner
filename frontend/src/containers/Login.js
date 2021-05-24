@@ -5,7 +5,9 @@ import { loginData } from "../actions/loginData";
 
 class Login extends Component {
   render() {
-    return <LoginComponent loginData={this.props.loginData} />;
+    return (
+      <LoginComponent user={this.props.user} loginData={this.props.loginData} />
+    );
   }
 }
 
@@ -14,4 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     loginData: (data) => dispatch(loginData("login", "POST", data)),
   };
 };
-export default connect(null, mapDispatchToProps)(LoginComponent);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
