@@ -9,11 +9,17 @@ Rails.application.routes.draw do
     path_names: {
       sign_in: 'login',
       sign_out: 'logout',
-      registration: 'signup'
+      registration: 'signup',
     },
     controllers: {
       sessions: 'sessions',
       registrations: 'registrations'
     }
+    
     resources :orders
+
+    devise_scope :user do
+      get 'account'    => 'registrations#show'
+   end
+
 end
