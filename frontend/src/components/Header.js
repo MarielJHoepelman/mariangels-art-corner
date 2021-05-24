@@ -1,5 +1,10 @@
 import logo from "../images/logo.png";
-import { HeaderWrapper, LogoLink } from "../styles";
+import {
+  HeaderWrapper,
+  LogoLink,
+  RedirectToPath,
+  HeaderAccountLink,
+} from "../styles";
 import HeaderShoppingCart from "../containers/HeaderShoppingCart";
 
 const Header = () => (
@@ -7,7 +12,10 @@ const Header = () => (
     <LogoLink to="/">
       <img src={logo} alt="logo" />
     </LogoLink>
-    <HeaderShoppingCart />
+    <HeaderAccountLink>
+      <RedirectToPath to="/account">Account</RedirectToPath>
+      <HeaderShoppingCart />
+    </HeaderAccountLink>
   </HeaderWrapper>
 );
 
