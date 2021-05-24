@@ -37,7 +37,7 @@ export class Product extends Component {
       image: this.props.products.product_image,
       product_name: this.props.products.product_name,
       price: this.props.products.price,
-      qty: this.state.quantity,
+      quantity: this.state.quantity,
     });
   };
 
