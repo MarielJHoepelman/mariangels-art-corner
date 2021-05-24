@@ -2,17 +2,22 @@ import { getPayload } from "./util/getPayload";
 
 export const signupData = (pageName, method, body) => {
   const payload = getPayload(method, body);
-  console.log(payload);
+
   return (dispatch) => {
-    dispatch({ type: "SUBMITTING_CONTACT" });
+    dispatch({ type: "SIGNING_UP_USER" });
     fetch(`http://localhost:5000/${pageName}`, payload)
       .then((response) => {
-        console.log(response);
+        if (response.headers.get("Authorization")) {
+          window.localStorage.setItem(
+            "jwt_token",
+            response.headers.get("Authorization")
+          );
+        }
         return response.json();
       })
       .then((responseJSON) => {
         console.log(responseJSON);
-        dispatch({ type: "CONTACT_SUBMITTED", products: responseJSON });
+        dispatch({ type: "USER_SIGNED_UP", user: responseJSON });
       })
       .catch((e) => {
         console.log(e);
