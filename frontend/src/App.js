@@ -1,20 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Home from "./containers/Home";
-import About from "./containers/About";
 import Header from "./components/Header";
-import ContactUs from "./containers/ContactUs";
 import Footer from "./components/Footer";
-import FrequentlyAskedQuestions from "./containers/FrequentlyAskedQuestions";
-import Art from "./containers/Art";
-import SingleArt from "./containers/SingleArt";
-import Shop from "./containers/Shop";
-import Product from "./containers/Product";
-import Signup from "./containers/Signup";
-import Login from "./containers/Login";
-import Cart from "./containers/Cart";
-import Checkout from "./containers/Checkout";
+import OrderSubmitted from "./components/OrderSubmitted";
+import {
+  About,
+  Home,
+  ContactUs,
+  FrequentlyAskedQuestions,
+  Art,
+  SingleArt,
+  Shop,
+  Product,
+  Signup,
+  Login,
+  Cart,
+  Checkout,
+  Account,
+} from "./containers";
+
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
@@ -39,6 +44,8 @@ function App(props) {
         <Route exact path="/login" component={Login} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/account" component={Account} />
+        <Route exact path="/order-submitted" component={OrderSubmitted} />
       </BodyContainer>
       <Footer />
     </Router>
