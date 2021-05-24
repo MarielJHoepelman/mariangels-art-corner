@@ -6,7 +6,9 @@ import {
   StyledInput,
   StyledTextArea,
   StyledButton,
+  RedirectToPath,
 } from "../styles";
+import { Redirect } from "react-router-dom";
 
 export class Login extends Component {
   constructor(props) {
@@ -31,15 +33,14 @@ export class Login extends Component {
   };
 
   render() {
+    if (localStorage.jwt_token) {
+      return <Redirect to="/account" />;
+    }
+
     return (
       <div>
         <SectionHeader>
-          <h1>LOG IN!</h1>
-          <p>Send us a message!</p>
-          <p>
-            Check out our FAQ page to see if the answer to your question is
-            already there :)
-          </p>
+          <h1>LOG IN</h1>
         </SectionHeader>
 
         <div>
@@ -63,7 +64,9 @@ export class Login extends Component {
               />
             </div>
 
-            <StyledButton type="submit">SEND</StyledButton>
+            <StyledButton type="submit">LOGIN</StyledButton>
+
+            <RedirectToPath to="/signup">Create an account</RedirectToPath>
           </StyledForm>
         </div>
       </div>
