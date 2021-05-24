@@ -5,7 +5,7 @@ import { Cart as CartComponent } from "../components/Cart";
 class Cart extends Component {
   calculateSubtotal = () => {
     return this.props.shopping_cart.reduce((acc, product) => {
-      return (acc += product.qty * product.price);
+      return (acc += product.quantity * product.price);
     }, 0);
   };
 
