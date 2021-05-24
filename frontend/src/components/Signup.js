@@ -6,7 +6,9 @@ import {
   StyledInput,
   StyledTextArea,
   StyledButton,
+  RedirectToPath,
 } from "../styles";
+import { Redirect } from "react-router-dom";
 
 export class Signup extends Component {
   constructor(props) {
@@ -16,6 +18,8 @@ export class Signup extends Component {
     this.state = {
       email: "",
       password: "",
+      name: "",
+      last_name: "",
     };
   }
 
@@ -31,19 +35,35 @@ export class Signup extends Component {
   };
 
   render() {
+    if (localStorage.jwt_token) {
+      return <Redirect to="/account" />;
+    }
     return (
       <div>
         <SectionHeader>
-          <h1>SIGN UP!</h1>
-          <p>Send us a message!</p>
-          <p>
-            Check out our FAQ page to see if the answer to your question is
-            already there :)
-          </p>
+          <h1>CREATE ACCOUNT</h1>
         </SectionHeader>
 
         <div>
           <StyledForm onSubmit={this.handleSubmit}>
+            <div>
+              <StyledLabel>Name:</StyledLabel>
+              <StyledInput
+                name="name"
+                type="text"
+                value={this.state.name}
+                onChange={this.handleOnChange}
+              />
+            </div>
+            <div>
+              <StyledLabel>Last name:</StyledLabel>
+              <StyledInput
+                name="last_name"
+                type="text"
+                value={this.state.last_name}
+                onChange={this.handleOnChange}
+              />
+            </div>
             <div>
               <StyledLabel>Email:</StyledLabel>
               <StyledInput
@@ -63,7 +83,10 @@ export class Signup extends Component {
               />
             </div>
 
-            <StyledButton type="submit">SEND</StyledButton>
+            <StyledButton type="submit">CREATE</StyledButton>
+            <RedirectToPath to="/login">
+              Log in with an existing account
+            </RedirectToPath>
           </StyledForm>
         </div>
       </div>
