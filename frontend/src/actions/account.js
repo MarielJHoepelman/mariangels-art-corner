@@ -11,6 +11,6 @@ export const account = (pageName, method, body) => {
       .then((responseJSON) => {
         dispatch({ type: "USER_ACCOUNT_LOADED", user: responseJSON });
       })
-      .catch((e) => {
+      .catch((e) => {});
   };
 };
