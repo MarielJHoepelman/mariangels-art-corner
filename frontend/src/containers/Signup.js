@@ -14,4 +14,10 @@ const mapDispatchToProps = (dispatch) => {
     signupData: (data) => dispatch(signupData("signup", "POST", data)),
   };
 };
-export default connect(null, mapDispatchToProps)(SignupComponent);
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignupComponent);
