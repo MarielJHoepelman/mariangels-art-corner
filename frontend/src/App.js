@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import { BodyContainer } from "./styles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import OrderSubmitted from "./components/OrderSubmitted";
@@ -19,12 +20,6 @@ import {
   Checkout,
   Account,
 } from "./containers";
-
-import styled from "styled-components";
-
-const BodyContainer = styled.div`
-  margin-bottom: 100px;
-`;
 
 function App(props) {
   return (
