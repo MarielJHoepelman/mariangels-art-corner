@@ -7,6 +7,11 @@ const COLORS = {
   blue: "#41d5fa",
 };
 
+export const BodyContainer = styled.div`
+  margin-bottom: 100px;
+  font-family: Montserrat;
+`;
+
 // ABOUT
 export const Bio = styled.div`
   text-align: center;
@@ -14,7 +19,6 @@ export const Bio = styled.div`
   margin-left: auto;
   margin-right: auto;
   line-height: 30px;
-  font-family: Montserrat;
 `;
 
 // FOOTER
@@ -27,11 +31,11 @@ export const StickyFooter = styled.footer`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-family: Montserrat;
 `;
 
 export const Copyright = styled.p`
   padding-left: 20px;
-  font-family: Montserrat;
 `;
 
 export const InstagramLogo = styled.a`
@@ -75,7 +79,6 @@ export const ArtCardsContainer = styled.section`
 export const ArtCardLink = styled(Link)`
   text-align: center;
   text-decoration: none;
-  font-family: Montserrat;
   color: #ff627e;
   font-weight: bold;
   :hover {
@@ -114,7 +117,6 @@ export const ColumnNameWrapper = styled.div`
   display: flex;
   margin: 0 20px;
   padding-bottom: 20px;
-  font-family: Montserrat;
   font-size: large;
 `;
 
@@ -135,14 +137,12 @@ export const ProductNameAndImage = styled.div`
 `;
 
 export const SubtotalWrapper = styled.div`
-  font-family: Montserrat;
   text-align: right;
   margin-right: 20px;
 `;
 
 export const RedirectToPath = styled(Link)`
   text-decoration: none;
-  font-family: Montserrat;
   display: block;
   padding: 10px;
   color: #ff627e;
@@ -174,7 +174,6 @@ export const SectionHeader = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   text-align: center;
-  font-family: Montserrat;
 `;
 
 export const StyledForm = styled.form`
@@ -190,7 +189,6 @@ export const StyledLabel = styled.label`
   line-height: 1.4em;
   margin-bottom: 8px;
   margin-top: 8px;
-  font-family: Montserrat;
 `;
 
 export const StyledInput = styled.input`
@@ -237,14 +235,12 @@ export const StyledButton = styled.button`
   letter-spacing: 0.08em;
   margin-top: 8px;
   font-weight: bold;
-  font-family: Montserrat;
 `;
 
 //FAQ
 
 export const FaqStyled = styled.div`
   text-align: center;
-  font-family: Montserrat;
 `;
 
 //HEADER
@@ -289,7 +285,6 @@ export const QtyWrapper = styled.div`
 // HOME
 export const HomeHeader = styled.div`
   padding-right: 100px;
-  font-family: Montserrat;
 `;
 
 export const HomeHeaderWrapper = styled.div`
@@ -338,7 +333,6 @@ export const NavigationLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-weight: bold;
-  font-family: Montserrat;
   &:hover {
     color: #ff627e;
   }
@@ -363,7 +357,6 @@ export const StyledAddButton = styled.button`
   letter-spacing: 0.08em;
   margin-top: 8px;
   font-weight: bold;
-  font-family: Montserrat;
   &:hover {
     background: #ff627e;
   }
@@ -387,7 +380,6 @@ export const StyledShopButton = styled.button`
 `;
 
 export const ButtonsWrapper = styled.div`
-  font-family: Montserrat;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -416,9 +408,8 @@ export const ProductContainer = styled.div`
   display: flex;
 `;
 
-export const ProductInfo = styled.div`
-  font-family: Montserrat;
-`;
+export const ProductInfo = styled.div``;
+
 export const ProductInfoWrapper = styled.div`
   margin-left: 50px;
 `;
@@ -428,7 +419,6 @@ export const ProductInfoWrapper = styled.div`
 export const ProductCardLink = styled(Link)`
   text-align: center;
   text-decoration: none;
-  font-family: Montserrat;
   color: #ff627e;
   font-weight: bold;
   :hover {
@@ -453,5 +443,4 @@ export const ArtWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   line-height: 30px;
-  font-family: Montserrat;
 `;
