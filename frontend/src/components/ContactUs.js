@@ -11,7 +11,6 @@ import {
 export class ContactUs extends Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
     this.state = {
       name: "",
