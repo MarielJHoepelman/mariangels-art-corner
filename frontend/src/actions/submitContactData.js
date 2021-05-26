@@ -10,7 +10,7 @@ export const submitContactData = (pageName, method, body) => {
         return response.json();
       })
       .then((responseJSON) => {
-        dispatch({ type: "CONTACT_SUBMITTED", products: responseJSON });
+        dispatch({ type: "CONTACT_SUBMITTED", contact: responseJSON });
       })
       .catch((e) => {});
   };
