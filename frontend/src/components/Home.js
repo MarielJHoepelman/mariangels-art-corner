@@ -32,6 +32,10 @@ export const Home = ({ data, loading }) => {
       <HomeArtCardsContainer>
         {data?.art_randomizer &&
           data.art_randomizer.map((art) => <ArtCard art={art} />)}
+        {content?.art_randomizer &&
+          content.art_randomizer.map((art) => (
+            <ArtCard key={art.page_name} art={art} />
+          ))}
       </HomeArtCardsContainer>
       <HomeLinkWrapper>
         <StyledLink to="/art">SEE ALL</StyledLink>

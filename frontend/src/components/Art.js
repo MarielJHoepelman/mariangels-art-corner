@@ -13,7 +13,9 @@ export const Art = ({ content, loading }) => {
   ) : (
     <ArtCardsContainer>
       {content?.display_art &&
-        content.display_art.map((art) => <ArtCard art={art} />)}
+        content.display_art.map((art) => (
+          <ArtCard key={art.page_name} art={art} />
+        ))}
     </ArtCardsContainer>
   );
 };
