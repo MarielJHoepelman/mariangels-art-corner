@@ -12,7 +12,11 @@ export class Checkout extends Component {
   }
 
   componentDidMount() {
-    this.props.account();
+    this.props.account().then((user) => {
+      if (!user) {
+        this.props.history.push("/login");
+      }
+    });
   }
 
   handleSubmit = (event) => {
@@ -31,13 +35,22 @@ export class Checkout extends Component {
         }),
       },
     };
-    this.props.submitOrder(order).then((result) => {
-      this.props.clearCart();
-      this.props.history.push({
-        pathname: "/order-submitted",
-        state: { order: result },
+    this.props
+      .submitOrder(order)
+      .then((result) => {
+        if (result.id) {
+          this.props.clearCart();
+          this.props.history.push({
+            pathname: "/order-submitted",
+            state: { order: result },
+          });
+        } else {
+          throw result;
+        }
+      })
+      .catch((e) => {
+        console.log(e);
       });
-    });
   };
 
   total = () => {
