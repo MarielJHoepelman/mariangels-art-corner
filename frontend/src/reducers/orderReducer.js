@@ -1,11 +1,11 @@
 export default function orderReducer(state = {}, action) {
   switch (action.type) {
-    case "LOADING_SUBMIT_ORDER":
+    case "LOADING_ORDER":
       return {
-        ...state,
+        ...state.order,
         loading: true,
       };
-    case "ORDER_SUBMITTED":
+    case "ORDER_LOADED":
       return {
         ...action.order,
         loading: false,

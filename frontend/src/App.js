@@ -19,6 +19,7 @@ import {
   Cart,
   Checkout,
   Account,
+  SingleOrder,
 } from "./containers";
 
 function App(props) {
@@ -41,6 +42,7 @@ function App(props) {
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/order-submitted" component={OrderSubmitted} />
+        <Route exact path="/orders/:id" component={SingleOrder} />
       </BodyContainer>
       <Footer />
     </Router>
