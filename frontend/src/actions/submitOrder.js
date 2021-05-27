@@ -11,8 +11,6 @@ export const submitOrder = (pageName, method, body) => {
       .then((responseJSON) => {
         return responseJSON;
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 };
