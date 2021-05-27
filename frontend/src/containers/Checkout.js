@@ -1,8 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { submitOrder } from "../actions/submitOrder";
-import { Checkout } from "../components/Checkout";
+import { Checkout as CheckoutComponent } from "../components/Checkout";
 import { account } from "../actions/account";
+
+class Checkout extends Component {
+  componentDidMount() {
+    this.props.account().then((user) => {
+      if (!user) {
+        this.props.history.push("/login");
+      }
+    });
+  }
+
+  render() {
+    return <CheckoutComponent {...this.props} />;
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
