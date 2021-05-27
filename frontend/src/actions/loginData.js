@@ -2,7 +2,6 @@ import { getPayload } from "./util/getPayload";
 
 export const loginData = (pageName, method, body) => {
   const payload = getPayload(method, body);
-  console.log(payload);
   return (dispatch) => {
     dispatch({ type: "LOGGIN_IN_USER" });
     fetch(`http://localhost:5000/${pageName}`, payload)
@@ -16,11 +15,8 @@ export const loginData = (pageName, method, body) => {
         return response.json();
       })
       .then((responseJSON) => {
-        console.log(responseJSON);
         dispatch({ type: "USER_LOGGED_IN", user: responseJSON });
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 };
