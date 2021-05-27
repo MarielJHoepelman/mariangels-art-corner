@@ -7,18 +7,6 @@ import {
 } from "../styles";
 
 export class Checkout extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    this.props.account().then((user) => {
-      if (!user) {
-        this.props.history.push("/login");
-      }
-    });
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -48,9 +36,7 @@ export class Checkout extends Component {
           throw result;
         }
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   total = () => {
@@ -81,7 +67,7 @@ export class Checkout extends Component {
                 <h3>
                   {product.product_name}
                   Qty: {product.quantity} ${product.price}
-                  Total: {product.quantity * product.price}
+                  Total: {(product.quantity * product.price).toFixed(2)}
                 </h3>
 
                 <img src={product.image.thumb} alt={product.id} />
