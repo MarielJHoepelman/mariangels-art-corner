@@ -19,7 +19,7 @@ class SingleArt extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { content: state.content };
+  return { content: state.content, loading: state.content.loading };
 };
 
 const mapDispatchToProps = (dispatch) => {
