@@ -51,13 +51,13 @@ export const Cart = ({
                 </p>
               </CartColumn>
               <CartColumn>
-                <p>{product.quantity * product.price}</p>
+                <p>{(product.quantity * product.price).toFixed(2)}</p>
               </CartColumn>
             </ColumnNameWrapper>
           ))}
         </div>
         <SubtotalWrapper>
-          <h2>Subtotal: ${calculateSubtotal}</h2>
+          <h2>Subtotal: ${calculateSubtotal.toFixed(2)}</h2>
 
           <StyledLink to="/checkout">CHECK OUT</StyledLink>
           <RedirectToPath to="/shop">Continue Shopping</RedirectToPath>
