@@ -234,7 +234,7 @@ export const StyledButton = styled.button`
   display: inline-block;
   letter-spacing: 0.08em;
   margin-top: 8px;
-  font-weight: bold;
+  font-weight: light;
 `;
 
 //FAQ
@@ -444,3 +444,25 @@ export const ArtWrapper = styled.div`
   margin-right: auto;
   line-height: 30px;
 `;
+
+//Account
+
+export const OrderWrapper = styled.div`
+  display: flex;
+  > div {
+    width: 25%;
+  }
+`;
+
+export const OrderColumn = styled.h3`
+  width: 25%;
+`;
+
+export const OrderHistoryContainer = styled.div`
+  margin: 0 auto;
+  width: 1000px;
+`;
+export const OrderHeaderWrapper = styled.div`
+  display: flex;
+`;
+export const SingleOrderContainer = styled.div``;
