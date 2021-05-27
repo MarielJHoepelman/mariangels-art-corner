@@ -10,8 +10,6 @@ export const fetcher = (pageName, method, body) => {
         return response.json();
       })
       .then((responseJSON) => {
-        // return responseJSON;
-        // debugger;
         dispatch({ type: "CONTENT_LOADED", content: responseJSON });
       })
       .catch((e) => {});
