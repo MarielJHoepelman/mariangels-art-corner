@@ -16,11 +16,8 @@ export const signupData = (pageName, method, body) => {
         return response.json();
       })
       .then((responseJSON) => {
-        console.log(responseJSON);
         dispatch({ type: "USER_SIGNED_UP", user: responseJSON });
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 };
