@@ -1,11 +1,5 @@
-import { Link } from "react-router-dom";
 import { ArtCard } from "./ArtCard";
-import {
-  TopDiv,
-  ImageContainer,
-  TopDivWrapper,
-  ArtCardsContainer,
-} from "../styles";
+import { ArtCardsContainer } from "../styles";
 
 export const Art = ({ content, loading }) => {
   return loading ? (
