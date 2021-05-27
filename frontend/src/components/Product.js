@@ -8,13 +8,11 @@ import {
   ProductContainer,
   ProductInfo,
   ProductInfoWrapper,
-  RedirectToPath,
 } from "../styles";
 
 export class Product extends Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
     this.state = {
       quantity: 1,
@@ -26,17 +24,17 @@ export class Product extends Component {
     this.setState({
       quantity:
         event.target.name === "add"
-          ? (this.state.quantity += 1)
-          : (this.state.quantity -= 1),
+          ? this.state.quantity + 1
+          : this.state.quantity - 1,
     });
   };
 
   handleAddToCart = () => {
     this.props.addProductToShoppingCart({
-      id: this.props.products.id,
-      image: this.props.products.product_image,
-      product_name: this.props.products.product_name,
-      price: this.props.products.price,
+      id: this.props.product.id,
+      image: this.props.product.product_image,
+      product_name: this.props.product.product_name,
+      price: this.props.product.price,
       quantity: this.state.quantity,
     });
   };
@@ -47,20 +45,20 @@ export class Product extends Component {
     ) : (
       <ProductContainer>
         <div>
-          {this.props.products?.product_image?.large && (
+          {this.props.product?.product_image?.large && (
             <img
-              src={this.props.products.product_image.large}
-              alt={this.props.products.product_name}
+              src={this.props.product.product_image.large}
+              alt={this.props.product.product_name}
             />
           )}
         </div>
         <ProductInfoWrapper>
           <ProductInfo>
-            <h1>{this.props.products.product_name}</h1>
-            <h3>${this.props.products.price}</h3>
+            <h1>{this.props.product.product_name}</h1>
+            <h3>${this.props.product.price}</h3>
             <h3
               dangerouslySetInnerHTML={{
-                __html: this.props.products.description,
+                __html: this.props.product.description,
               }}
             />
           </ProductInfo>
