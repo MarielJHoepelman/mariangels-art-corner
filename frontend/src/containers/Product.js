@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { productsFetcher } from "../actions/productsFetcher";
+import { productFetcher } from "../actions/productFetcher";
 import { Product as ProductComponent } from "../components/Product";
 
 class Product extends Component {
   componentDidMount() {
-    this.props.productsFetcher(this.props.match.params.page_name);
+    this.props.productFetcher(this.props.match.params.page_name);
   }
 
   render() {
     return (
       <ProductComponent
-        products={this.props.products}
+        product={this.props.product}
         loading={this.props.loading}
         addProductToShoppingCart={this.props.addProductToShoppingCart}
       />
@@ -20,13 +20,13 @@ class Product extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { products: state.products.data, loading: state.products.loading };
+  return { product: state.product, loading: state.product.loading };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    productsFetcher: (page_name) =>
-      dispatch(productsFetcher(`products/${page_name}`, "GET")),
+    productFetcher: (page_name) =>
+      dispatch(productFetcher(`products/${page_name}`, "GET")),
     addProductToShoppingCart: (product) => {
       dispatch({ type: "ADD_PRODUCT_TO_SHOPPING_CART", product });
     },
