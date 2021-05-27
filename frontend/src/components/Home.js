@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArtCard } from "./ArtCard";
 import {
   HomeHeader,
@@ -10,7 +9,7 @@ import {
   HomeLinkWrapper,
 } from "../styles";
 
-export const Home = ({ data, loading }) => {
+export const Home = ({ content, loading }) => {
   return loading ? (
     <div> loading... </div>
   ) : (
@@ -18,20 +17,18 @@ export const Home = ({ data, loading }) => {
       <HomeHeaderContainer>
         <HomeHeaderWrapper>
           <HomeHeader>
-            <h1>{data.title}</h1>
-            <h3>{data.body}</h3>
+            <h1>{content.title}</h1>
+            <h3>{content.body}</h3>
           </HomeHeader>
           <ImageContainer>
-            {data?.image_file?.large && (
-              <img src={data.image_file.medium} alt="profile" />
+            {content?.image_file?.large && (
+              <img src={content.image_file.medium} alt="profile" />
             )}
           </ImageContainer>
         </HomeHeaderWrapper>
       </HomeHeaderContainer>
 
       <HomeArtCardsContainer>
-        {data?.art_randomizer &&
-          data.art_randomizer.map((art) => <ArtCard art={art} />)}
         {content?.art_randomizer &&
           content.art_randomizer.map((art) => (
             <ArtCard key={art.page_name} art={art} />
