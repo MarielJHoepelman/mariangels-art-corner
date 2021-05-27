@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(submitContactData("contacts", "POST", data)),
   };
 };
-export default connect(null, mapDispatchToProps)(ContactUsComponent);
+export default connect(null, mapDispatchToProps)(ContactUs);
