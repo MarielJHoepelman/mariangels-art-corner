@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetcher } from "../actions/fetcher";
 import { HeaderShoppingCart as HeaderShoppingCartComponent } from "../components/HeaderShoppingCart";
 
 class HeaderShoppingCart extends Component {
+  componentDidMount() {
+    this.props.cartFetcher();
+  }
+
   render() {
     return (
       <HeaderShoppingCartComponent
