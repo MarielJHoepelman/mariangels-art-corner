@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import {
   SectionHeader,
-  StyledForm,
-  StyledLabel,
-  StyledInput,
-  StyledTextArea,
   StyledButton,
   RedirectToPath,
   OrderWrapper,
@@ -16,20 +12,6 @@ import {
 import { Redirect } from "react-router-dom";
 
 export class Account extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    this.props.account().then((user) => {
-      if (!user) {
-        this.props.history.push("/login");
-      } else {
-        this.props.ordersFetcher();
-      }
-    });
-  }
-
   handleLogout = () => {
     this.props.logout();
     this.props.history.push("/");
