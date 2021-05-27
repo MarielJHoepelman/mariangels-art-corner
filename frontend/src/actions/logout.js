@@ -11,8 +11,6 @@ export const logout = (pageName, method, body) => {
           dispatch({ type: "USER_LOGGED_OUT", user: {} });
         }
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 };
