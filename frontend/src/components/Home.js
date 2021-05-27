@@ -21,7 +21,7 @@ export const Home = ({ content, loading }) => {
             <h3>{content.body}</h3>
           </HomeHeader>
           <ImageContainer>
-            {content?.image_file?.large && (
+            {content?.image_file?.medium && (
               <img src={content.image_file.medium} alt="profile" />
             )}
           </ImageContainer>
