@@ -21,12 +21,12 @@ export class Product extends Component {
 
   handleClick = (event) => {
     if (this.state.quantity === 1 && event.target.name === "substract") return;
-    this.setState({
+    this.setState((prevState) => ({
       quantity:
         event.target.name === "add"
-          ? this.state.quantity + 1
-          : this.state.quantity - 1,
-    });
+          ? prevState.quantity + 1
+          : prevState.quantity - 1,
+    }));
   };
 
   handleAddToCart = () => {
