@@ -6,7 +6,10 @@ import { submitContactData } from "../actions/submitContactData";
 class ContactUs extends Component {
   render() {
     return (
-      <ContactUsComponent submitContactData={this.props.submitContactData} />
+      <ContactUsComponent
+        submitContactData={this.props.submitContactData}
+        history={this.props.history}
+      />
     );
   }
 }

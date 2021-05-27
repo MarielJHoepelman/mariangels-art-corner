@@ -22,7 +22,6 @@ const mapStateToProps = (state) => {
   return {
     shoppingCart: state.shopping_cart,
     user: state.user,
-    order: state.order,
   };
 };
 
