@@ -4,7 +4,6 @@ import {
   StyledForm,
   StyledLabel,
   StyledInput,
-  StyledTextArea,
   StyledButton,
   RedirectToPath,
 } from "../styles";
@@ -13,7 +12,6 @@ import { Redirect } from "react-router-dom";
 export class Signup extends Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
     this.state = {
       email: "",
