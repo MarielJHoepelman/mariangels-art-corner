@@ -26,8 +26,10 @@ export class ContactUs extends Component {
   };
 
   handleSubmit = (event) => {
+    alert("Email sent. Thank you");
     event.preventDefault();
     this.props.submitContactData(this.state);
+    this.props.history.push("/");
   };
 
   render() {
@@ -66,6 +68,7 @@ export class ContactUs extends Component {
               <StyledLabel>Message:</StyledLabel>
               <StyledTextArea
                 name="message"
+                type="textarea"
                 onChange={this.handleOnChange}
                 value={this.state.message}
               />
