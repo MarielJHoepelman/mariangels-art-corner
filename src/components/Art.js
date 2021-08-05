@@ -4,7 +4,6 @@ import { ArtCardsContainer } from "../styles";
 
 export class Art extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
 
     this.state = {
@@ -29,16 +28,17 @@ export class Art extends Component {
   };
 
   render() {
-    console.log(this.displayAllArt());
     return this.props.loading ? (
       <div> this.props.loading... </div>
     ) : (
       <>
-        <div>
-          <form onChange={this.handleOnChange}>
-            <input type="text" name="search" />
-          </form>
-        </div>
+        {false && (
+          <div>
+            <form onChange={this.handleOnChange}>
+              <input type="text" name="search" />
+            </form>
+          </div>
+        )}
         <ArtCardsContainer>
           {this.displayAllArt().map((art) => (
             <ArtCard key={art.page_name} art={art} />

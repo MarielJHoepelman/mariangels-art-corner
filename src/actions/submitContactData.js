@@ -1,11 +1,12 @@
 import { getPayload } from "./util/getPayload";
+import { getBackendUrl } from "./util/getBackendUrl";
 
 export const submitContactData = (pageName, method, body) => {
   const payload = getPayload(method, body);
 
   return (dispatch) => {
     dispatch({ type: "SUBMITTING_CONTACT" });
-    fetch(`http://localhost:5000/${pageName}`, payload)
+    fetch(`${getBackendUrl()}${pageName}`, payload)
       .then((response) => {
         return response.json();
       })

@@ -1,11 +1,12 @@
 import { getPayload } from "./util/getPayload";
+import { getBackendUrl } from "./util/getBackendUrl";
 
 export const ordersFetcher = (pageName, method) => {
   const payload = getPayload(method);
 
   return (dispatch) => {
     dispatch({ type: "LOADING_ORDERS" });
-    fetch(`http://localhost:5000/${pageName}`, payload)
+    fetch(`${getBackendUrl()}${pageName}`, payload)
       .then((response) => {
         return response.json();
       })

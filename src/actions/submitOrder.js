@@ -1,10 +1,11 @@
 import { getPayload } from "./util/getPayload";
+import { getBackendUrl } from "./util/getBackendUrl";
 
 export const submitOrder = (pageName, method, body) => {
   const payload = getPayload(method, body);
 
   return (dispatch) => {
-    return fetch(`http://localhost:5000/${pageName}`, payload)
+    return fetch(`${getBackendUrl()}{pageName}`, payload)
       .then((response) => {
         return response.json();
       })

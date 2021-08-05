@@ -1,11 +1,12 @@
 import { getPayload } from "./util/getPayload";
+import { getBackendUrl } from "./util/getBackendUrl";
 
 export const fetcher = (pageName, method, body) => {
   const payload = getPayload(method, body);
 
   return (dispatch) => {
     dispatch({ type: "LOADING_CONTENT" });
-    fetch(`http://localhost:5000/${pageName}`, payload)
+    fetch(`${getBackendUrl()}${pageName}`, payload)
       .then((response) => {
         return response.json();
       })
