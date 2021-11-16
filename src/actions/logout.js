@@ -2,7 +2,7 @@ import { getPayload } from "./util/getPayload";
 import { getBackendUrl } from "./util/getBackendUrl";
 
 export const logout = (pageName, method, body) => {
-  const payload = getPayload(method, body);
+  const payload = getPayload("GET", null);
   return (dispatch) => {
     dispatch({ type: "LOGGIN_OUT_USER" });
     fetch(`${getBackendUrl()}${pageName}`, payload)
