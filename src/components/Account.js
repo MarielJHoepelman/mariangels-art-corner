@@ -13,7 +13,6 @@ import { Redirect } from "react-router-dom";
 
 export class Account extends Component {
   handleLogout = () => {
-    console.log(1, "inside handle logout");
     this.props.logout();
     this.props.history.push("/");
   };
