@@ -74,6 +74,12 @@ export const ArtCardsContainer = styled.section`
   margin: 0 auto;
 `;
 
+export const ArtSearch = styled.div`
+  width: 100%;
+  max-width: 350px;
+  margin: 20px auto;
+`;
+
 // ARTCARD
 
 export const ArtCardLink = styled(Link)`
@@ -203,6 +209,9 @@ export const StyledInput = styled.input`
   width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
+  ::placeholder {
+    font-family: Montserrat;
+  }
 `;
 
 export const StyledTextArea = styled.textarea`
