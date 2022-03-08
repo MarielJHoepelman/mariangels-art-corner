@@ -1,50 +1,39 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { ArtCard } from "./ArtCard";
-import { ArtCardsContainer } from "../styles";
+import { ArtCardsContainer, StyledInput, ArtSearch } from "../styles";
 
-export class Art extends Component {
-  constructor(props) {
-    super(props);
+export const Art = (props) => {
+  const [search, setSearch] = useState("");
 
-    this.state = {
-      search: "",
-    };
-  }
-
-  handleOnChange = (event) => {
-    this.setState({
-      search: event.target.value,
-    });
+  const displayAllArt = () => {
+    return props.content.display_art.filter((art) =>
+      art.title.toLowerCase().includes(search.toLowerCase())
+    );
   };
 
-  displayAllArt = () => {
-    if (!this.props.content.display_art) {
-      return [];
-    } else {
-      return this.props.content.display_art.filter((art) =>
-        art.page_name.includes(this.state.search)
-      );
-    }
+  const handleOnChange = (event) => {
+    setSearch(event.target.value);
   };
 
-  render() {
-    return this.props.loading ? (
-      <div> this.props.loading... </div>
-    ) : (
+  if (props.content.loading) {
+    return <div> LOADING...</div>;
+  } else {
+    return (
       <>
-        {false && (
-          <div>
-            <form onChange={this.handleOnChange}>
-              <input type="text" name="search" />
-            </form>
-          </div>
-        )}
+        <ArtSearch>
+          <StyledInput
+            value={search}
+            onChange={handleOnChange}
+            placeholder="search art"
+          />
+        </ArtSearch>
         <ArtCardsContainer>
-          {this.displayAllArt().map((art) => (
-            <ArtCard key={art.page_name} art={art} />
-          ))}
+          {props?.content?.display_art &&
+            displayAllArt().map((art) => (
+              <ArtCard key={art.page_name} art={art} />
+            ))}
         </ArtCardsContainer>
       </>
     );
   }
-}
+};
