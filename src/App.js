@@ -22,7 +22,7 @@ import {
   SingleOrder,
 } from "./containers";
 
-function App(props) {
+function App() {
   return (
     <Router>
       <BodyContainer>
