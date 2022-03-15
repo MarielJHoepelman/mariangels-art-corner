@@ -3,7 +3,6 @@ import { ArtCard } from "./ArtCard";
 import { ArtCardsContainer, StyledInput, ArtSearch } from "../styles";
 
 export const Art = (props) => {
-  console.log("hello props", props)
   const [search, setSearch] = useState("");
 
   const displayAllArt = () => {
