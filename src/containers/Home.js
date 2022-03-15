@@ -1,31 +1,27 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetcher } from "../actions/fetcher";
+import { useEffect, useState } from "react";
 import { Home as HomeComponent } from "../components/Home";
+import { asyncFetcher } from "../actions/asyncFetcher";
 
-class Home extends Component {
-  componentDidMount() {
-    this.props.fetcher();
-  }
+const Home = () => {
+  const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  render() {
-    return (
-      <HomeComponent
-        content={this.props.content}
-        loading={this.props.loading}
-      />
-    );
-  }
+  useEffect(() => {
+    const callFetcher = async () => {
+      const getContent = await asyncFetcher("contents/home", "GET");
+      setContent(getContent);
+      setLoading(false);
+    }
+
+    callFetcher();
+  }, []);
+
+  return (
+    <HomeComponent
+      content={content}
+      loading={loading}
+    />
+  );
+
 }
-
-const mapStateToProps = (state) => {
-  return { loading: state.content.loading, content: state.content };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetcher: () => dispatch(fetcher(`contents/home`, "GET")),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
