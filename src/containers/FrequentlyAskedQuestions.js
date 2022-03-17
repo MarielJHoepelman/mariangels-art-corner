@@ -1,35 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetcher } from "../actions/fetcher";
+import { useContent } from "../hooks/useContent";
 import { FrequentlyAskedQuestions as FrequentlyAskedQuestionsComponent } from "../components/FrequentlyAskedQuestions";
 
-class FrequentlyAskedQuestions extends Component {
-  componentDidMount() {
-    this.props.fetcher();
-  }
+const FrequentlyAskedQuestions = () => {
+  const { content, loading } = useContent("contents/frequently-asked-questions");
 
-  render() {
-    return (
-      <FrequentlyAskedQuestionsComponent
-        content={this.props.content}
-        loading={this.props.loading}
-      />
-    );
-  }
+  return (
+    <FrequentlyAskedQuestionsComponent
+      content={content}
+      loading={loading}
+    />
+  );
 }
 
-const mapStateToProps = (state) => {
-  return { content: state.content, loading: state.loading };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetcher: () =>
-      dispatch(fetcher("contents/frequently-asked-questions", "GET")),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FrequentlyAskedQuestions);
+export default FrequentlyAskedQuestions;
