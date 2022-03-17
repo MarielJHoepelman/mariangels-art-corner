@@ -1,23 +1,11 @@
-import { useState, useEffect } from "react";
 import { Art as ArtComponent } from "../components/Art";
-import { asyncFetcher } from "../actions/asyncFetcher";
+import { useContent } from "../hooks/useContent";
 
 const Art = () => {
-  const [art, setArt] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const callFetcher = async () => {
-      const getArt = await asyncFetcher("/contents/art", "GET");
-      setArt(getArt);
-      setLoading(false);
-    }
-
-    callFetcher();
-  }, []);
+  const { content, loading } = useContent("/contents/art");
 
   return (
-    <ArtComponent content={art} loading={loading} />
+    <ArtComponent content={content} loading={loading} />
   );
 }
 
