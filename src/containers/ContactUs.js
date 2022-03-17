@@ -1,23 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
 import { ContactUs as ContactUsComponent } from "../components/ContactUs";
-import { submitContactData } from "../actions/submitContactData";
+import { asyncFetcher } from "../actions/asyncFetcher";
+import { useHistory } from "react-router-dom";
 
-class ContactUs extends Component {
-  render() {
-    return (
-      <ContactUsComponent
-        submitContactData={this.props.submitContactData}
-        history={this.props.history}
-      />
-    );
-  }
-}
+const ContactUs = () => {
+  const history = useHistory();
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitContactData: (data) =>
-      dispatch(submitContactData("contacts", "POST", data)),
+  const submitContactData = async (data) => {
+    await asyncFetcher("contacts", "POST", data);
   };
+
+  return (
+    <ContactUsComponent
+      submitContactData={submitContactData}
+      history={history}
+    />
+  );
 };
-export default connect(null, mapDispatchToProps)(ContactUs);
+
+export default ContactUs;
